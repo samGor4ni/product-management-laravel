@@ -181,7 +181,7 @@ The project includes a comprehensive test suite covering API CRUD, filtering, an
     While the project follows MVC, the API responses use **Eloquent Resources** (`ProductResource`) to ensure a decoupled and consistent data structure that includes relationship details (Category) as requested.
 
 3.  **Sanctum Authentication**: 
-    We chose Laravel Sanctum for API authentication as it provides a lightweight, robust token-based system suitable for SPAs and mobile apps.
+    I chose Laravel Sanctum for API authentication as it provides a lightweight, robust token-based system suitable for SPAs and mobile apps.
 
 4.  **Soft Deletes Implementation**: 
     Standard `SoftDeletes` are used for products to prevent accidental data loss while keeping the database clean for the end-user.
