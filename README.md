@@ -36,10 +36,24 @@ app/
 config/
   l5-swagger.php              # Documentation UI & scanner settings
 database/
+  factories/                  # Model blueprints for generating test data
+    CategoryFactory.php
+    ProductFactory.php
   migrations/                 # Database table schemas
-  seeders/                    # Sample data (Categories, Products, Users)
+    2026_02_09_083252_create_categories_table.php
+    2026_02_09_083253_create_products_table.php
+  seeders/                    # Sample data for initial setup
+    CategorySeeder.php
+    ProductSeeder.php
+    DatabaseSeeder.php        # Entry point for all seeders
 resources/
-  views/                      # Blade templates for Web Dashboard
+  views/
+    layouts/
+      app.blade.php           # Main dashboard layout (Navigation & UI)
+    products/                 # CRUD templates for Web Dashboard
+      index.blade.php         # Product list & filtering
+      create.blade.php        # Add new product form
+      edit.blade.php          # Update product form
 routes/
   api.php                     # API endpoint definitions
   web.php                     # Web dashboard route definitions
@@ -85,7 +99,9 @@ composer install
 ```
 
 ### 3. Environment Variables (.env)
-Key values to ensure are set:
+The project is pre-configured to work with Laravel Sail and Swagger using the values in `.env.example`. **Please ensure you copy `.env.example` to `.env` as shown in the installation steps.**
+
+Key values included in `.env.example`:
 ```env
 APP_NAME="Product Management"
 APP_URL=http://localhost:8080
@@ -99,6 +115,8 @@ DB_USERNAME=sail
 DB_PASSWORD=password
 
 FORWARD_DB_PORT=3306
+
+L5_SWAGGER_CONST_HOST=http://localhost:8080
 ```
 
 ### 4. Database Access
